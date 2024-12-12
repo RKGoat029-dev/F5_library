@@ -31,8 +31,9 @@ public class User {
 
     /* CONSTRUCTORS */
 
-    public User(String dni, String firstName, String lastName, String userEmail, String userPhone) {
+    public User(String dni, String userTag, String firstName, String lastName, String userEmail, String userPhone) {
         this.dni = dni;
+        this.userTag = userTag;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userEmail = userEmail;
@@ -50,6 +51,10 @@ public class User {
     // DNI
     public String getDni() { return dni; }
     public void setDni(String dni) { this.dni = dni; }
+
+    // USERTAG
+    public String getUserTag() { return userTag; }
+    public void setUserTag(String userTag) { this.userTag = userTag; }
 
     // FIRST NAME
     public String getFirstName() { return firstName; }
