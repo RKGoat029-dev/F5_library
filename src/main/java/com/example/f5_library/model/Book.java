@@ -28,7 +28,13 @@ public class Book {
 
     /* CONSTRUCTORS */
 
-    public Book (String isbn, String title, String author, String genre, String description) {
+    public Book (
+            String isbn,
+            String title,
+            String author,
+            String genre,
+            String description
+    ) {
         this.isbn = isbn;
         this.title = title;
         this.author = author;

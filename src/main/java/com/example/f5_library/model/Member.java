@@ -4,8 +4,8 @@ package com.example.f5_library.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table( name = "users" )
-public class User {
+@Table( name = "members" )
+public class Member {
 
     // ID - Auto Incremental
     @Id @GeneratedValue( strategy = GenerationType.IDENTITY)
@@ -15,7 +15,7 @@ public class User {
     private String dni;
 
     // USER TAG
-    private String userTag;
+    private String memberTag;
 
     // FIRST NAME
     private String firstName;
@@ -24,23 +24,30 @@ public class User {
     private String lastName;
 
     // USER EMAIL
-    private String userEmail;
+    private String memberEmail;
 
     // USER PHONE NUMBER
-    private String userPhone;
+    private String memberPhone;
 
     /* CONSTRUCTORS */
 
-    public User(String dni, String userTag, String firstName, String lastName, String userEmail, String userPhone) {
+    public Member(
+            String dni,
+            String memberTag,
+            String firstName,
+            String lastName,
+            String memberEmail,
+            String memberPhone
+    ) {
         this.dni = dni;
-        this.userTag = userTag;
+        this.memberTag = memberTag;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userEmail = userEmail;
-        this.userPhone = userPhone;
+        this.memberEmail = memberEmail;
+        this.memberPhone = memberPhone;
     }
 
-    public User() {}
+    public Member() {}
 
     /* GETTERS & SETTERS */
 
@@ -52,9 +59,9 @@ public class User {
     public String getDni() { return dni; }
     public void setDni(String dni) { this.dni = dni; }
 
-    // USERTAG
-    public String getUserTag() { return userTag; }
-    public void setUserTag(String userTag) { this.userTag = userTag; }
+    // TAG
+    public String getMemberTag() { return memberTag; }
+    public void setMemberTag(String memberTag) { this.memberTag = memberTag; }
 
     // FIRST NAME
     public String getFirstName() { return firstName; }
@@ -65,10 +72,10 @@ public class User {
     public void setLastName(String lastName) { this.lastName = lastName; }
 
     // EMAIL
-    public String getUserEmail() { return userEmail; }
-    public void setUserEmail(String userEmail) { this.userEmail = userEmail; }
+    public String getMemberEmail() { return memberEmail; }
+    public void setMemberEmail(String memberEmail) { this.memberEmail = memberEmail; }
 
     // PHONE NUMBER
-    public String getUserPhone() { return userPhone; }
-    public void setUserPhone(String userPhone) { this.userPhone = userPhone; }
+    public String getMemberPhone() { return memberPhone; }
+    public void setMemberPhone(String memberPhone) { this.memberPhone = memberPhone; }
 }

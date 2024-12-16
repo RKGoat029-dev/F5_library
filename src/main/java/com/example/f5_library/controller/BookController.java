@@ -14,31 +14,41 @@ public class BookController {
 
     private final BookService bookService;
 
-    public BookController(BookService bookService) { this.bookService = bookService; }
+    public BookController(BookService bookService) {
+        this.bookService = bookService;
+    }
 
     /* CRUD */
 
     // Create
     @PostMapping("/books")
-    public void createBook(@RequestBody Book newBook) { bookService.addBook(newBook); }
+    public void createBook(@RequestBody Book newBook) {
+        bookService.addBook(newBook);
+    }
 
     // Read
     @GetMapping("/books")
-    public List<Book> getAllBooks() { return bookService.getBooks(); }
+    public List<Book> getAllBooks() {
+        return bookService.getBooks();
+    }
 
     // Update
     @PutMapping("/books/{id}")
     public ResponseEntity<Book> updateBook(@PathVariable int id, @RequestBody Book updatedBook) {
         try {
-            Book updatingBook = bookService.updatedBook(id,  updatedBook);
+            Book updatingBook = bookService.updatedBook(id, updatedBook);
             return new ResponseEntity<>(updatingBook, HttpStatus.OK);
         }
-        catch (Exception e) { return new ResponseEntity<>(HttpStatus.NOT_FOUND); }
+        catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     // Delete
     @DeleteMapping("/books/{id}")
-    public void deleteBookById(@PathVariable int id) { bookService.deleteBook(id); }
+    public void deleteBookById(@PathVariable int id) {
+        bookService.deleteBook(id);
+    }
 
 
     /* FILTERS */
@@ -49,8 +59,9 @@ public class BookController {
 
         Optional<Book> foundBookWithId = bookService.findBookById(id);
 
-        if(foundBookWithId.isPresent()) { return new ResponseEntity<>(foundBookWithId.get(), HttpStatus.FOUND); }
-        else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        if(foundBookWithId.isPresent()) {
+            return new ResponseEntity<>(foundBookWithId.get(), HttpStatus.FOUND);
+        } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     // ISBN
@@ -59,7 +70,9 @@ public class BookController {
 
         Optional<Book> foundBookWithIsbn = bookService.findBookByIsbn(isbn);
 
-        if(foundBookWithIsbn.isPresent()) { return new ResponseEntity<>(foundBookWithIsbn.get(), HttpStatus.FOUND); } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        if(foundBookWithIsbn.isPresent()) {
+            return new ResponseEntity<>(foundBookWithIsbn.get(), HttpStatus.FOUND);
+        } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     // TITLE
@@ -68,8 +81,9 @@ public class BookController {
 
         Optional<Book> foundBookWithTitle = bookService.findBookByTitle(title);
 
-        if(foundBookWithTitle.isPresent()) { return new ResponseEntity<>(foundBookWithTitle.get(), HttpStatus.FOUND); } else
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        if(foundBookWithTitle.isPresent()) {
+            return new ResponseEntity<>(foundBookWithTitle.get(), HttpStatus.FOUND);
+        } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
 
