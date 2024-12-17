@@ -3,6 +3,7 @@ package com.example.f5_library.controller;
 
 import java.util.List;
 import java.util.Optional;
+import com.example.f5_library.exception.ObjectNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -61,7 +62,7 @@ public class BookController {
 
         if(foundBookWithId.isPresent()) {
             return new ResponseEntity<>(foundBookWithId.get(), HttpStatus.FOUND);
-        } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else throw new ObjectNotFoundException("Book", id);
     }
 
     // ISBN
