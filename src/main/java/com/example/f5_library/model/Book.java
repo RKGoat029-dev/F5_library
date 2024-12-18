@@ -2,14 +2,19 @@
 package com.example.f5_library.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Table( name = "books" )
+@Table(name = "books")
+@NoArgsConstructor @Getter @Setter
 public class Book {
 
     // ID - Auto Incremental
     @Id @GeneratedValue( strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
     // ISBN
     private String isbn;
@@ -42,31 +47,4 @@ public class Book {
         this.description = description;
     }
 
-    public Book () {}
-
-    /* GETTERS & SETTERS */
-
-    // ID - Auto Incremental
-    public long getId() { return id; }
-    public void setId(int id) { this.id = id; }
-
-    // ISBN
-    public String getIsbn() { return isbn; }
-    public void setIsbn(String isbn) { this.isbn = isbn; }
-
-    // TITLE
-    public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
-
-    // AUTHOR
-    public String getAuthor() { return author; }
-    public void setAuthor(String author) { this.author = author; }
-
-    // GENRE
-    public String getGenre() { return genre; }
-    public void setGenre(String genre) { this.genre = genre; }
-
-    // DESCRIPTION
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
 }

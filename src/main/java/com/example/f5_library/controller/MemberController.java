@@ -57,7 +57,7 @@ public class MemberController {
     @GetMapping("/members/id/{id}")
     public ResponseEntity<Member> findMemberWithId(@PathVariable int id) {
 
-        Optional<Member> foundUserWithId = memberService.findUserById(id);
+        Optional<Member> foundMemberWithId = memberService.findMemberById(id);
 
         if(foundMemberWithId.isPresent()) {
             return new ResponseEntity<>(foundMemberWithId.get(), HttpStatus.FOUND);

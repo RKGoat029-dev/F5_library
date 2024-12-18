@@ -9,7 +9,7 @@ public class Member {
 
     // ID - Auto Incremental
     @Id @GeneratedValue( strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
     // DNI
     private String dni;
