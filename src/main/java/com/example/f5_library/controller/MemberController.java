@@ -3,6 +3,8 @@ package com.example.f5_library.controller;
 
 import java.util.List;
 import java.util.Optional;
+
+import com.example.f5_library.model.Book;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -63,4 +65,38 @@ public class MemberController {
             return new ResponseEntity<>(foundMemberWithId.get(), HttpStatus.FOUND);
         } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
+    // MEMBER TAG
+    @RequestMapping("/members/tag/{memberTag}")
+    public ResponseEntity<Member> findMemberWithMemberTag(@PathVariable String memberTag) {
+
+        Optional<Member> foundMemberWithMemberTag = memberService.findMemberByMemberTag(memberTag);
+
+        if(foundMemberWithMemberTag.isPresent()) {
+            return new ResponseEntity<>(foundMemberWithMemberTag.get(), HttpStatus.FOUND);
+        } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    // DNI
+    @RequestMapping("/members/dni/{dni}")
+    public ResponseEntity<Member> findMemberWithDni(@PathVariable String dni) {
+
+        Optional<Member> foundMemberWithDni = memberService.findMemberByDni(dni);
+
+        if(foundMemberWithDni.isPresent()) {
+            return new ResponseEntity<>(foundMemberWithDni.get(), HttpStatus.FOUND);
+        } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    // EMAIL
+    @RequestMapping("/members/email/{memberEmail}")
+    public ResponseEntity<Member> findMemberWithMemberEmail(@PathVariable String memberEmail) {
+
+        Optional<Member> foundMemberWithMemberEmail = memberService.findMemberByEmail(memberEmail);
+
+        if(foundMemberWithMemberEmail.isPresent()) {
+            return new ResponseEntity<>(foundMemberWithMemberEmail.get(), HttpStatus.FOUND);
+        } else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
 }

@@ -2,9 +2,13 @@
 package com.example.f5_library.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table( name = "members" )
+@NoArgsConstructor @Getter @Setter
 public class Member {
 
     // ID - Auto Incremental
@@ -47,35 +51,4 @@ public class Member {
         this.memberPhone = memberPhone;
     }
 
-    public Member() {}
-
-    /* GETTERS & SETTERS */
-
-    // ID - Auto Incremental
-    public long getId() { return id; }
-    public void setId(int id) { this.id = id; }
-
-    // DNI
-    public String getDni() { return dni; }
-    public void setDni(String dni) { this.dni = dni; }
-
-    // TAG
-    public String getMemberTag() { return memberTag; }
-    public void setMemberTag(String memberTag) { this.memberTag = memberTag; }
-
-    // FIRST NAME
-    public String getFirstName() { return firstName; }
-    public void setFirstName(String firstName) { this.firstName = firstName; }
-
-    // LAST NAME
-    public String getLastName() { return lastName; }
-    public void setLastName(String lastName) { this.lastName = lastName; }
-
-    // EMAIL
-    public String getMemberEmail() { return memberEmail; }
-    public void setMemberEmail(String memberEmail) { this.memberEmail = memberEmail; }
-
-    // PHONE NUMBER
-    public String getMemberPhone() { return memberPhone; }
-    public void setMemberPhone(String memberPhone) { this.memberPhone = memberPhone; }
 }

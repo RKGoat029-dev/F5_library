@@ -3,6 +3,8 @@ package com.example.f5_library.service;
 
 import java.util.List;
 import java.util.Optional;
+
+import com.example.f5_library.model.Book;
 import com.example.f5_library.model.Member;
 import com.example.f5_library.repository.MemberRepository;
 import org.springframework.stereotype.Service;
@@ -72,4 +74,20 @@ public class MemberService {
     public Optional<Member> findMemberById(int id) {
         return memberRepository.findById(id);
     }
+
+    // MEMBER TAG
+    public Optional<Member> findMemberByMemberTag(String memberTag) {
+        return memberRepository.findByMemberTag(memberTag);
+    }
+
+    // DNI
+    public Optional<Member> findMemberByDni(String dni) {
+        return memberRepository.findByDni(dni);
+    }
+
+    // EMAIL
+    public Optional<Member> findMemberByEmail(String memberEmail) {
+        return memberRepository.findByMemberEmail(memberEmail);
+    }
+
 }
